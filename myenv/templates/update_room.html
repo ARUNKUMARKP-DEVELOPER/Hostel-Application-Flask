@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.V.Hostel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .profile-card {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base_admin.html' %}
+    
+    {% block content %}
+        <div class="container">
+            <div class="profile-card">
+                <h2>Update Room Page</h2>
+                <form action="{{url_for('update_room_2',id=detail[0][0])}}" method="POST">
+                    <div class="form-group">
+                        <input type="hidden" name="id" value={{detail[0][0]}} required>
+                    </div>
+                    <div class="form-group">
+                        <label for="room no">Room no:</label>
+                        <input type="text" class="form-control" name="room_no" id="room no" value={{detail[0][1]}} required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bed no">Bed no</label>
+                        <input type="text" class="form-control" name="bed_no" id="bed no" value={{detail[0][2]}} required>
+                    </div>
+                    <div class="form-group" value={{detail[0][3]}}>
+                        <div class="form-check">
+                            <h4>Berth or Not</h4>
+                            <input type="radio" class="form-check-input" name="berth_or_not" id="berth_or_not" value=Berth required>
+                            <label class="form-check-label" for="berth_or_not">  Berth</label><br>
+                            <input type="radio" class="form-check-input" name="berth_or_not" id="berth_or_not" value=Not_Berth>
+                            <label class="form-check-label" for="berth_or_not">  Not Berth</label><br>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rent_per_month">Rent per Month</label>
+                        <input type="number" class="form-control" name="rent_per_month" id="rent_per_month" value={{detail[0][4]}} required>
+                    </div>
+                    <div class="form-group" value={{detail[0][5]}}>
+                        <div class="form-check">
+                            <h4>Available or Not</h4>
+                            <input type="radio" class="form-check-input" name="available_or_not" id="available_or_not" value=Available required>
+                            <label class="form-check-label" for="available_or_not">  Available</label><br>
+                            <input type="radio" class="form-check-input" name="available_or_not" id="available_or_not" value=Not_Available>
+                            <label class="form-check-label" for="available_or_not">  Not Available</label><br>
+                        </div>
+
+                    <button type="submit" class="btn btn-success" style="float:right;">Save</button>
+                    
+                </form>
+            </div>
+        </div>
+
+    {% endblock %}
+    
+</body>
+</html>

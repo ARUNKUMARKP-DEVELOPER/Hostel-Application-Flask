@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    {% extends 'base_admin.html' %}
+
+    {% block content %}
+
+        <div class="container">    
+            <div class="col-sm-12">
+                <h3 style="text-align: center;">Room Details</h3>
+                <button type="button"class="btn btn-success" style="float:right;" data-toggle="modal" data-target="#detailInputModal">+ add detail </button>
+                <nav class="horizontal-scroll" id="myScrollspy">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="#room1">Room 1</a></li>
+                        <li><a href="#Room2">Room 2</a></li>
+                        <li><a href="#Room3">Room 3</a></li>
+                        <li><a href="#Room4">Room 4</a></li>
+                        <li><a href="#Room5">Room 5</a></li>
+                        <li><a href="#Room6">Room 6</a></li>
+                        <li><a href="#Room7">Room 7</a></li>
+                        <li><a href="#Room8">Room 8</a></li>
+                        <li><a href="#Room9">Room 9</a></li>
+                        <li><a href="#Room10">Room 10</a></li>
+                    </ul>
+                </nav><br>
+
+                <div id="room1">
+                    <h3 style="display:inline-block;"> Room 1 </h3>               
+                    <div class="container">        
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th>Room no</th>
+                            <th>Bet no</th>
+                            <th>Berth or Not</th>
+                            <th>Rent per Month</th>
+                            <th>Available or Not</th>
+                            <th>Hostelers_details</th>
+                            <th>Modify</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form>
+                                {% for detail in details %}
+                                {% if detail[1] == 1 %}
+                                <tr>
+                                    <td>{{detail[1]}}</td>
+                                    <td>{{detail[2]}}</td>
+                                    <td>{{detail[3]}}</td>
+                                    <td>{{detail[4]}}</td>
+                                    <td>{{detail[5]}}</td>
+                                    <td>
+                                        {% if detail[5]== "Available" %}
+                                            <button type="submit" class="btn btn-info" formaction="{{url_for('click_button',id=detail[0])}}" formmethod="POST"> Click </button>
+                                        {% else %}
+                                            <button type="button" disabled> Click </button>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="id" value={{detail[0]}}>
+                                        <button type="submit" class="btn btn-info" formaction="{{url_for('update_room_1',id=detail[0])}}" formmethod="POST">Update</button>
+                                        <button type="submit" class="btn btn-danger" formaction="{{url_for('delete_row',id=detail[0])}}" formmethod="POST">Delete</button>
+                                    </td>                                        
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div><br><br>
+
+                <div id="Room2"> 
+                    <h3 style="display:inline-block;"> Room 2 </h3>      
+                    <div class="container">        
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th>Room no</th>
+                            <th>Bet no</th>
+                            <th>Berth or Not</th>
+                            <th>Rent per Month</th>
+                            <th>Available or Not</th>
+                            <th>Hostelers_details</th>
+                            <th>Modify</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form>
+                                {% for detail in details %}
+                                {% if detail[1] == 2 %}
+                                <tr>
+                                    <td>{{detail[1]}}</td>
+                                    <td>{{detail[2]}}</td>
+                                    <td>{{detail[3]}}</td>
+                                    <td>{{detail[4]}}</td>
+                                    <td>{{detail[5]}}</td>
+                                    <td>
+                                        {% if detail[5]== "Available" %}
+                                            <button type="submit" class="btn btn-info" formaction="{{url_for('click_button',id=detail[0])}}" formmethod="POST"> Click </button>
+                                        {% else %}
+                                            <button type="button" disabled> Click </button>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="id" value={{detail[0]}}>
+                                        <button type="submit" class="btn btn-info" formaction="{{url_for('update_room_1',id=detail[0])}}" formmethod="POST">Update</button>
+                                        <button type="submit" class="btn btn-danger" formaction="{{url_for('delete_row',id=detail[0])}}" formmethod="POST">Delete</button>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div> <br> <br>
+
+                <div id="Room3">         
+                    <h3 style="display:inline-block;"> Room 3 </h3>      
+                    <div class="container">           
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th>Room no</th>
+                            <th>Bet no</th>
+                            <th>Berth or Not</th>
+                            <th>Rent per Month</th>
+                            <th>Available or Not</th>
+                            <th>Hostelers_details</th>
+                            <th>Modify</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form>
+                                {% for detail in details %}
+                                {% if detail[1] == 3 %}
+                                <tr>
+                                    <td>{{detail[1]}}</td>
+                                    <td>{{detail[2]}}</td>
+                                    <td>{{detail[3]}}</td>
+                                    <td>{{detail[4]}}</td>
+                                    <td>{{detail[5]}}</td>
+                                    <td>
+                                        {% if detail[5]== "Available" %}
+                                            <button type="submit" class="btn btn-info" formaction="{{url_for('click_button',id=detail[0])}}" formmethod="POST"> Click </button>
+                                        {% else %}
+                                            <button type="button" disabled> Click </button>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="id" value={{detail[0]}}>
+                                        <button type="submit" class="btn btn-info" formaction="{{url_for('update_room_1',id=detail[0])}}" formmethod="POST">Update</button>
+                                        <button type="submit" class="btn btn-danger" formaction="{{url_for('delete_row',id=detail[0])}}" formmethod="POST">Delete</button>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div><br><br>
+
+                <div id="Room4">         
+                    <h3 style="display:inline-block;"> Room 4 </h3>      
+                    <div class="container">           
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th>Room no</th>
+                            <th>Bet no</th>
+                            <th>Berth or Not</th>
+                            <th>Rent per Month</th>
+                            <th>Available or Not</th>
+                            <th>Hostelers_details</th>
+                            <th>Modify</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form>
+                                {% for detail in details %}
+                                {% if detail[1] == 4 %}
+                                <tr>
+                                    <td>{{detail[1]}}</td>
+                                    <td>{{detail[2]}}</td>
+                                    <td>{{detail[3]}}</td>
+                                    <td>{{detail[4]}}</td>
+                                    <td>{{detail[5]}}</td>
+                                    <td>
+                                        {% if detail[5]== "Available" %}
+                                            <button type="submit" class="btn btn-info" formaction="{{url_for('click_button',id=detail[0])}}" formmethod="POST"> Click </button>
+                                        {% else %}
+                                            <button type="button" disabled> Click </button>
+                                        {% endif %}
+                                    
+                                    <td>
+                                        <input type="hidden" name="id" value={{detail[0]}}>
+                                        <button type="submit" class="btn btn-info" formaction="{{url_for('update_room_1',id=detail[0])}}" formmethod="POST">Update</button>
+                                        <button type="submit" class="btn btn-danger" formaction="{{url_for('delete_row',id=detail[0])}}" formmethod="POST">Delete</button>
+                                    </td>
+                                </td>
+                                {% endif %}
+                                {% endfor %}
+                            </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div> <br><br>
+
+                <div id="Room5">         
+                    <h3 style="display:inline-block;"> Room 5 </h3>      
+                    <div class="container">           
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th>Room no</th>
+                            <th>Bet no</th>
+                            <th>Berth or Not</th>
+                            <th>Rent per Month</th>
+                            <th>Available or Not</th>
+                            <th>Hostelers_details</th>
+                            <th>Modify</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form>
+                                {% for detail in details %}
+                                {% if detail[1] == 5 %}
+                                <tr>
+                                    <td>{{detail[1]}}</td>
+                                    <td>{{detail[2]}}</td>
+                                    <td>{{detail[3]}}</td>
+                                    <td>{{detail[4]}}</td>
+                                    <td>{{detail[5]}}</td>
+                                    <td>
+                                        {% if detail[5]== "Available" %}
+                                            <button type="submit" class="btn btn-info" formaction="{{url_for('click_button',id=detail[0])}}" formmethod="POST"> Click </button>
+                                        {% else %}
+                                            <button type="button" disabled> Click </button>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="id" value={{detail[0]}}>
+                                        <button type="submit" class="btn btn-info" formaction="{{url_for('update_room_1',id=detail[0])}}" formmethod="POST">Update</button>
+                                        <button type="submit" class="btn btn-danger" formaction="{{url_for('delete_row',id=detail[0])}}" formmethod="POST">Delete</button>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div><br><br>
+
+                <div id="Room6">         
+                    <h3 style="display:inline-block;"> Room 6 </h3>     
+                    <div class="container">           
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th>Room no</th>
+                            <th>Bet no</th>
+                            <th>Berth or Not</th>
+                            <th>Rent per Month</th>
+                            <th>Available or Not</th>
+                            <th>Hostelers_details</th>
+                            <th>Modify</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form>
+                                {% for detail in details %}
+                                {% if detail[1] == 6 %}
+                                <tr>
+                                    <td>{{detail[1]}}</td>
+                                    <td>{{detail[2]}}</td>
+                                    <td>{{detail[3]}}</td>
+                                    <td>{{detail[4]}}</td>
+                                    <td>{{detail[5]}}</td>
+                                    <td>
+                                        {% if detail[5]== "Available" %}
+                                            <button type="submit" class="btn btn-info" formaction="{{url_for('click_button',id=detail[0])}}" formmethod="POST"> Click </button>
+                                        {% else %}
+                                            <button type="button" disabled> Click </button>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="id" value={{detail[0]}}>
+                                        <button type="submit" class="btn btn-info" formaction="{{url_for('update_room_1',id=detail[0])}}" formmethod="POST">Update</button>
+                                        <button type="submit" class="btn btn-danger" formaction="{{url_for('delete_row',id=detail[0])}}" formmethod="POST">Delete</button>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div><br><br>
+
+                <div id="Room7">         
+                    <h3 style="display:inline-block;"> Room 7 </h3>      
+                    <div class="container">           
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th>Room no</th>
+                            <th>Bet no</th>
+                            <th>Berth or Not</th>
+                            <th>Rent per Month</th>
+                            <th>Available or Not</th>
+                            <th>Hostelers_details</th>
+                            <th>Modify</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form>
+                                {% for detail in details %}
+                                {% if detail[1] == 7 %}
+                                <tr>
+                                    <td>{{detail[1]}}</td>
+                                    <td>{{detail[2]}}</td>
+                                    <td>{{detail[3]}}</td>
+                                    <td>{{detail[4]}}</td>
+                                    <td>{{detail[5]}}</td>
+                                    <td>
+                                        {% if detail[5]== "Available" %}
+                                            <button type="submit" class="btn btn-info" formaction="{{url_for('click_button',id=detail[0])}}" formmethod="POST"> Click </button>
+                                        {% else %}
+                                            <button type="button" disabled> Click </button>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="id" value={{detail[0]}}>
+                                        <button type="submit" class="btn btn-info" formaction="{{url_for('update_room_1',id=detail[0])}}" formmethod="POST">Update</button>
+                                        <button type="submit" class="btn btn-danger" formaction="{{url_for('delete_row',id=detail[0])}}" formmethod="POST">Delete</button>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div><br><br>
+
+                <div id="Room8">         
+                    <h3 style="display:inline-block;"> Room 8 </h3>      
+                    <div class="container">           
+                        <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th>Room no</th>
+                            <th>Bet no</th>
+                            <th>Berth or Not</th>
+                            <th>Rent per Month</th>
+                            <th>Available or Not</th>
+                            <th>Hostelers_details</th>
+                            <th>Modify</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form>
+                                {% for detail in details %}
+                                {% if detail[1] == 8 %}
+                                <tr>
+                                    <td>{{detail[1]}}</td>
+                                    <td>{{detail[2]}}</td>
+                                    <td>{{detail[3]}}</td>
+                                    <td>{{detail[4]}}</td>
+                                    <td>{{detail[5]}}</td>
+                                    <td>
+                                        {% if detail[5]== "Available" %}
+                                            <button type="submit" class="btn btn-info" formaction="{{url_for('click_button',id=detail[0])}}" formmethod="POST"> Click </button>
+                                        {% else %}
+                                            <button type="button" disabled> Click </button>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="id" value={{detail[0]}}>
+                                        <button type="submit" class="btn btn-info" formaction="{{url_for('update_room_1',id=detail[0])}}" formmethod="POST">Update</button>
+                                        <button type="submit" class="btn btn-danger" formaction="{{url_for('delete_row',id=detail[0])}}" formmethod="POST">Delete</button>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div><br><br>
+
+                <div id="Room9">         
+                    <h3 style="display:inline-block;"> Room 9 </h3>      
+                    <div class="container">           
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                <th>Room no</th>
+                                <th>Bet no</th>
+                                <th>Berth or Not</th>
+                                <th>Rent per Month</th>
+                                <th>Available or Not</th>
+                                <th>Hostelers_details</th>
+                                <th>Modify</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <form>
+                                    {% for detail in details %}
+                                    {% if detail[1] == 9 %}
+                                    <tr>
+                                        <td>{{detail[1]}}</td>
+                                        <td>{{detail[2]}}</td>
+                                        <td>{{detail[3]}}</td>
+                                        <td>{{detail[4]}}</td>
+                                        <td>{{detail[5]}}</td>
+                                        <td>
+                                            {% if detail[5]== "Available" %}
+                                                <button type="submit" class="btn btn-info" formaction="{{url_for('click_button',id=detail[0])}}" formmethod="POST"> Click </button>
+                                            {% else %}
+                                                <button type="button" disabled> Click </button>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <input type="hidden" name="id" value={{detail[0]}}>
+                                            <button type="submit" class="btn btn-info" formaction="{{url_for('update_room_1',id=detail[0])}}" formmethod="POST">Update</button>
+                                            <button type="submit" class="btn btn-danger" formaction="{{url_for('delete_row',id=detail[0])}}" formmethod="POST">Delete</button>
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                </form>
+                            </tbody>
+                        </table>
+                    </div>
+                </div><br><br>
+
+                <div id="Room10">         
+                    <h3 style="display:inline-block;"> Room 10 </h3>
+                    <div class="container">         
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                <th>Room no</th>
+                                <th>Bet no</th>
+                                <th>Berth or Not</th>
+                                <th>Rent per Month</th>
+                                <th>Available or Not</th>
+                                <th>Hostelers_details</th>
+                                <th>Modify</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <form>
+                                    {% for detail in details %}
+                                    {% if detail[1] == 10 %}
+                                    <tr>
+                                        <td>{{detail[1]}}</td>
+                                        <td>{{detail[2]}}</td>
+                                        <td>{{detail[3]}}</td>
+                                        <td>{{detail[4]}}</td>
+                                        <td>{{detail[5]}}</td>
+                                        <td>
+                                            {% if detail[5]== "Available" %}
+                                                <button type="submit" class="btn btn-info" formaction="{{url_for('click_button',id=detail[0])}}" formmethod="POST"> Click </button>
+                                            {% else %}
+                                                <button type="button" disabled> Click </button>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <input type="hidden" name="id" value={{detail[0]}}>
+                                            <button type="submit" class="btn btn-info" formaction="{{url_for('update_room_1',id=detail[0])}}" formmethod="POST">Update</button>
+                                            <button type="submit" class="btn btn-danger" formaction="{{url_for('delete_row',id=detail[0])}}" formmethod="POST">Delete</button>
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                </form>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="modal fade" id="detailInputModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Details</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <div class="modal-body">
+                            <form action="{{url_for('rooms_admin')}}" method="POST">
+                                <input type="hidden" class="form-control" name="id"><br>
+
+                                <label for="Room no">Room no:</label>
+                                <input type="number" class="form-control" id="Room no" name="Room no" required><br>
+                            
+                            
+                                <label for="Bed no">Bed no:</label>
+                                <input type="number" class="form-control" id="Bed no" name="Bed no" required><br>
+                            
+                            
+                                <div class="form-check" aria-required="true">
+                                    <h4>Berth or Not Berth:</h4>
+                                    <input type="radio" class="form-check-input" id="Berth or Not" name="Berth or Not" value="Berth" checked>
+                                    <label class="form-check-label" for="Berth or Not">Berth</label><br>
+                                    <input type="radio" class="form-check-input" id="Berth or Not" name="Berth or Not" value="Not Berth" checked>
+                                    <label class="form-check-label" for="Berth or Not">Not Berth</label>
+                                </div><br>
+                            
+                            
+                                <label for="Rent per Month">Rent per Month:</label>
+                                <input type="number" class="form-control" id="Rent per Month" name="Rent per Month" required><br>
+                            
+                            
+                                <div class="form-check" aria-required="true">
+                                    <h4>Available or Not:</h4>
+                                    <input type="radio" class="form-check-input" id="Available or Not" name="Available or Not" value="Available" checked>
+                                    <label class="form-check-label" for="Available or Not">Available</label><br>
+                                    <input type="radio" class="form-check-input" id="Available or Not" name="Available or Not" value="Not Available" checked>
+                                    <label class="form-check-label" for="Available or Not">Not Available</label>
+                                </div><br>
+                            
+                                <div>
+                                <button type="submit" class="btn btn-success" style="float:right;">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+
+</body>
+</html>

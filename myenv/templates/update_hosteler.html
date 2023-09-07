@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.V.Hostel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .profile-card {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    
+    {% block content %}
+                <div class="container">
+                    <div class="profile-card">
+                        <h2>Update Hosteler Detail</h2>
+                        <form action="{{url_for('update_hosteler_2',id=detail[0])}}" method="POST">
+                            <div class="form-group">
+                                <input type="hidden" name="id" vlue={{detail[0]}}>
+
+                                <label for="room no">Room no:</label>
+                                <input type="number" class="form-control" name="room_no" id="room no" value={{detail[1]}} required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bed no">Bed no:</label>
+                                <input type="number" class="form-control" name="bed_no" id="bed no" value={{detail[2]}} required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name" id="name" value={{detail[3]}} required>
+                            </div>
+                            <div class="form-group">
+                                <label for="adhaar_no">Adhaar no</label>
+                                <input type="number" class="form-control" name="adhaar_no" id="adhaar_no" value={{detail[4]}} required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile_no">Mobile no:</label>
+                                <input type="number" class="form-control" name="mobile_no" id="mobile_no" value={{detail[5]}} required>
+                            </div>
+                            <div class="form-group">
+                                <label for="rent">Rent:</label>
+                                <input type="number" class="form-control" name="rent" id="rent" value={{detail[6]}} required>
+                            </div>
+                            <div class="form-group" value={{detail[7]}}>
+                                <div class="form-check">
+                                    <h4>Paid or Not:</h4>
+                                    <input type="radio" class="form-check-input" name="paid_or_not" id="paid_or_not" value="paid" required>
+                                    <label class="form-check-label" for="paid_or_not">  Paid</label><br>
+                                    <input type="radio" class="form-check-input" name="paid_or_not" id="paid_or_not" value="not_paid">
+                                    <label class="form-check-label" for="paid_or_not">  Not Paid</label><br>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-success" style="float:right;">Save</button>
+                            
+                        </form>
+                    </div>
+                </div>
+
+    {% endblock %}
+    
+</body>
+</html>

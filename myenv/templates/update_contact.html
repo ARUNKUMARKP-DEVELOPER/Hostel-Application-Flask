@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.V.Hostel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .profile-card {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    
+    {% block content %}
+        <div class="container">
+            <div class="profile-card">
+                <h2>Update Contact Detail</h2>
+                <form action="{{url_for('contact_admin_2')}}" method="POST">
+                    <div class="form-group">
+                        <label for="staff">Staff:</label>
+                        <input type="text" class="form-control" name="staff" id="staff" value={{detail[1]}} required>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" value={{detail[2]}} required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile_no">Mobile no:</label>
+                        <input type="number" class="form-control" name="mobile_no" id="mobile_no" value={{detail[3]}} required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email_id">email id:</label>
+                        <input type="email" class="form-control" name="email_id" id="email_id" value={{detail[4]}} required>
+                    </div>
+
+                    <button type="submit" class="btn btn-success" style="float:right;">Save</button>
+                    
+                </form>
+            </div>
+        </div>
+
+    {% endblock %}
+    
+</body>
+</html>

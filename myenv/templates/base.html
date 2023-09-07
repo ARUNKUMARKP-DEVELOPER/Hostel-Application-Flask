@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>{% block title %} S.V.Hostel {% endblock %}</title>
+
+</head>
+<body>
+    <div class="container">
+        <div>
+            {% block header %}
+                <div><br>
+                    <form style="float:right">
+                        <button type="submit" formaction="{{url_for('rooms_admin')}}" formmethod="GET" class="btn btn-info">Admin Page</button>
+                        <button type="submit" formaction="{{url_for('logout_user')}}" formmethod="GET" class="btn btn-info">LogOut</button>
+                    </form>
+                </div><br>
+                <div class="text-center">
+                    <h2> <b> SRI VENGADESHWARA MEN'S HOSTEL </b> </h3>
+                </div>
+
+                <div class="btn-group btn-group-justified">
+                    <a href="{{url_for('home')}}" class="btn btn-primary" style="border-width:3px;">HOME</a>
+                    <a href="{{url_for('rooms')}}" class="btn btn-primary" style="border-width:3px;">ROOMS</a>
+                    <a href="{{url_for('contact')}}" class="btn btn-primary" style="border-width:3px;">CONTACT</a>
+                    <a href="{{url_for('your_profile')}}" class="btn btn-primary" style="border-width:3px;">YOUR PROFILE</a>
+                </div>
+            {% endblock %}
+        </div>
+
+        <div class="jumbotron">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+        <div>
+
+            {% block footer %}
+            {% endblock %}
+    
+        </div>
+
+</body>
+</html>

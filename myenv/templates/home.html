@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>S.V.Hostel</title>
+
+</head>
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+      <div style="text-align: center;">
+        <h2>Home Page</h2>
+        <h3>Available Rooms</h3>
+      </div><br>
+        <div class="container">         
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Room no</th>
+                  <th>bet no</th>
+                  <th>Berth or Not</th>
+                  <th>Rent per Month</th>
+                  <th>Book</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for detail in details %}
+                    {% if detail[5] == "Available" %}
+                        <tr>
+                        <td>{{detail[1]}}</td>
+                        <td>{{detail[2]}}</td>
+                        <td>{{detail[3]}}</td>
+                        <td>{{detail[4]}}</td>
+                        <td>
+                          <button type="button" class="btn btn-success">Book</button>
+                        </td>
+                      </tr>
+                    {% endif %}
+                  {% endfor %}
+              </tbody>
+            </table>
+        </div>
+          
+    {% endblock %}
+
+    {% block footer %}
+      
+      <div class="jumbotron">
+        <h1><b> About </b></h1>
+      </div>
+
+    {% endblock %}
+
+</body>
+</html>

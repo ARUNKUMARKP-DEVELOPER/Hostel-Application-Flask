@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.V.Hostel</title>
+</head>
+<body>
+    
+    {% extends 'base_admin.html' %}
+
+    {% block content %}
+
+    <div style="text-align: center;">
+        <h2>Hostelers Details</h2>
+    </div>
+    <div class="col-sm-13">
+        <button type="button"class="btn btn-primary"  style="float:right;" data-toggle="modal" data-target="#detailInputModal">+ add detail </button><br><br><br>               
+            <div class="container">        
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                        <th>ID</th>
+                        <th>Room no</th>
+                        <th>Bed no</th>
+                        <th>Name</th>
+                        <th>Adhaar no</th>
+                        <th>Mobile no</th>
+                        <th>Rent</th>
+                        <th>Paid or Not</th>
+                        <th>Modify</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form>
+                            {% for detail in details %}
+                                <tr>
+                                    <td>{{detail[0]}}</td>
+                                    <td>{{detail[1]}}</td>
+                                    <td>{{detail[2]}}</td>
+                                    <td>{{detail[3]}}</td>
+                                    <td>{{detail[4]}}</td>
+                                    <td>{{detail[5]}}</td>
+                                    <td>{{detail[6]}}</td>
+                                    <td>{{detail[7]}}</td>
+                                    <td>
+                                        <input type="hidden" name="id" value={{detail[0]}}>
+                                        <button type="submit" class="btn btn-info" formaction="{{url_for('update_hosteler_1',id=detail[0])}}" formmethod="POST">Update</button>
+                                        <button type="submit" formaction="{{url_for('delete_hosteler',id=detail[0])}}" formmethod="POST" class="btn btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade" id="detailInputModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Details</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <form action="{{url_for('hostelers_admin')}}" method="POST">
+                    
+                    <label for="Room no">Room no:</label>
+                    <input type="number" class="form-control" id="Room no" name="room_no" required><br>
+                
+                    <label for="Bed no">Bed no:</label>
+                    <input type="number" class="form-control" id="Bed no" name="bed_no" required><br>
+                
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required><br>
+                
+                    <label for="adhaar_no">Adhaar no:</label>
+                    <input type="number" class="form-control" id="adhaar_no" name="adhaar_no" required><br>
+                
+                    <label for="mobile_no">Mobile no:</label>
+                    <input type="number" class="form-control" id="mobile_no" name="mobile_no" required><br>
+                
+                    <label for="rent">Rent:</label>
+                    <input type="number" class="form-control" id="rent" name="rent" required><br>
+
+                    <div class="form-group">
+                        <label class="mb-2">Paid or Not:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paid_or_not" id="paid" value="paid" required>
+                            <label class="form-check-label" for="paid">Paid</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paid_or_not" id="not_paid" value="not_paid">
+                            <label class="form-check-label" for="not_paid">Not Paid</label>
+                        </div>
+                    </div>
+                
+                    <div>
+                        <button type="submit" formaction="{{url_for('hostelers_admin')}}" formmethod="post" class="btn btn-success" style="float:right;">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    {% endblock %}
+</body>
+</html>

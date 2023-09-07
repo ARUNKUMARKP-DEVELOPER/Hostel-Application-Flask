@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S.V.Hostel</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .login-container {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 150px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .login-container .form-group {
+      margin-bottom: 20px;
+    }
+
+    .login-container label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .login-container .form-control:focus {
+      border-color: #7c7c7c;
+      box-shadow: none;
+    }
+
+    .login-container .btn-primary {
+      width: 100%;
+      background-color: #007bff;
+      border-color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .login-container .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+
+    .login-container .btn-primary:focus {
+      box-shadow: none;
+    }
+
+    .login-container .btn-secondary {
+      width: 100%;
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+
+    .login-container .btn-secondary:hover {
+      background-color: #5a6268;
+      border-color: #545b62;
+    }
+
+    .login-container .btn-secondary:focus {
+      box-shadow: none;
+    }
+
+    .login-container .forgot-password {
+      text-align: right;
+      color: #777;
+    }
+
+    .login-container .forgot-password a {
+      color: #777;
+      text-decoration: none;
+    }
+
+    .login-container .forgot-password a:hover {
+      color: #333;
+    }
+
+    .login-container .new-user,
+    .login-container .existing-user {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .logo {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+    @media (max-width: 576px) {
+      .login-container {
+        margin-top: 50px;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    <div class="logo">
+        <img src="{{url_for('static',filename='logo.png')}}" style="width: 110px;" text-align = "center" alt="logo">
+        <h1 text-align = "center"> Welcome to SRI VENGADESHWARA MEN'S PG </h1>
+    </div> 
+
+    <div class="container">
+        <div class="login-container">
+            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 text-primary" style="font-family:Calibri"><b>Login Page</b></p>
+
+            <form action="{{url_for('login_for_admin')}}" method="post">
+                <h3>Signup Page</h3>
+
+                <div class="form-group">
+                <h6><b><label for="inputEmail4">Username:</label></b></h6>
+                <input type="text" class="form-control" id="username" maxlength="10" name="luname" size="16" placeholder="Enter User Name" required autofocus>
+                </div>
+
+                <div class="form-group">
+                <h6><b><label for="inputPassword4">Password:</label></b></h6>
+                <input type="password" class="form-control" id="password" maxlength="10" name="lpass" size="16" placeholder="Enter Password" required autofocus>
+                </div>
+
+                {% if message %}
+                <p style="color: rgb(231, 21, 21);">{{ message }}</p>
+                {% endif %}
+
+                <div class="form-group">
+                    <b><input type="submit" class="btn btn-primary" value="Login" id="login"></b>
+                </div>
+
+                <div class="form-group">
+                <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+
+            </form>
+        </div>
+  </div>
+</body>
+</html>

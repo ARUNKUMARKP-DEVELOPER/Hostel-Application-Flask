@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>S.V.Hostel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        OTP
+                    </div>
+
+                    <p style="color:blue;"> 5 digits OTP will send to {{to_email}}</p>
+
+                    <div class="card-body">
+                        <form action="{{url_for('send_otp')}}" method="POST">
+                            <div class="form-group">
+                                <label for="email">Enter Your OTP</label>
+                                <input type="text" class="form-control" id="email" name="otp" placeholder="Enter your OTP" required>
+                                {% if message %}
+                                    <p style="color:rgb(229, 25, 25);">{{message}}</p>
+                                {% endif %}
+                            </div>
+                            <button type="submit" formaction="{{url_for('send_otp')}}" formmethod="POST" class="btn btn-primary">Submit</button>
+                            <a href="{{url_for('login')}}" class="btn btn-secondary">Back to Login</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+        <div style="text-align: center;">
+            <h2>Rooms</h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <nav class="col-sm-3" id="myScrollspy">
+                <!-- <nav id="navbar-example3" class="navbar navbar-light bg-light flex-column align-items-stretch p-3"> -->
+                <div id="list-example" class="list-group">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a class="list-group-item list-group-item-action" href="#room1">Room 1</a></li>
+                        <li><a class="list-group-item list-group-item-action" href="#Room2">Room 2</a></li>
+                        <li><a class="list-group-item list-group-item-action" href="#Room3">Room 3</a></li>
+                        <li><a class="list-group-item list-group-item-action" href="#Room4">Room 4</a></li>
+                        <li><a class="list-group-item list-group-item-action" href="#Room5">Room 5</a></li>
+                        <li><a class="list-group-item list-group-item-action" href="#Room6">Room 6</a></li>
+                        <li><a class="list-group-item list-group-item-action" href="#Room7">Room 7</a></li>
+                        <li><a class="list-group-item list-group-item-action" href="#Room8">Room 8</a></li>
+                        <li><a class="list-group-item list-group-item-action" href="#Room9">Room 9</a></li>
+                        <li><a class="list-group-item list-group-item-action" href="#Room10">Room 10</a></li>
+                    </ul>
+                </div>
+                <!-- </nav> -->
+                </nav>
+                
+                
+                <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+                    <div class="col-sm-9">
+                        <div id="room1">
+                            <h3>Room 1</h3>           
+                            <div class="container">        
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>bet no</th>
+                                        <th>Berth or Not</th>
+                                        <th>Rent per Month</th>
+                                        <th>Available or Not</th>
+                                        <th>Book</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for detail in details %}
+                                            {% if detail[1] == 1 %}
+                                            <tr>
+                                            <td>{{detail[2]}}</td>
+                                            <td>{{detail[3]}}</td>
+                                            <td>{{detail[4]}}</td>
+                                            <td>{{detail[5]}}</td>
+                                            <td>
+                                                {% if detail[5] == "Available" %}
+                                                    <button type="button" class="btn btn-success">Book</button>
+                                                {% else %}
+                                                    <button type="button" class="btn btn-success" disabled>Book</button>
+                                                {% endif %}
+                                            </td>
+                                            </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="Room2"> 
+                            <h3>Room 2</h3>
+                            <div class="container">        
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>bet no</th>
+                                        <th>Berth or Not</th>
+                                        <th>Rent per Month</th>
+                                        <th>Available or Not</th>
+                                        <th>Book</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for detail in details %}
+                                            {% if detail[1] == 2 %}
+                                                <tr>
+                                                <td>{{detail[2]}}</td>
+                                                <td>{{detail[3]}}</td>
+                                                <td>{{detail[4]}}</td>
+                                                <td>{{detail[5]}}</td>
+                                                <td>
+                                                    {% if detail[5] == "Available" %}
+                                                        <button type="button" class="btn btn-success">Book</button>
+                                                    {% else %}
+                                                        <button type="button" class="btn btn-success" disabled>Book</button>
+                                                    {% endif %}
+                                                </td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>       
+
+                        <div id="Room3">         
+                            <h3>Room 3</h3>
+                            <div class="container">           
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>bet no</th>
+                                        <th>Berth or Not</th>
+                                        <th>Rent per Month</th>
+                                        <th>Available or Not</th>
+                                        <th>Book</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for detail in details %}
+                                            {% if detail[1] == 3 %}
+                                                <tr>
+                                                <td>{{detail[2]}}</td>
+                                                <td>{{detail[3]}}</td>
+                                                <td>{{detail[4]}}</td>
+                                                <td>{{detail[5]}}</td>
+                                                <td>
+                                                    {% if detail[5] == "Available" %}
+                                                        <button type="button" class="btn btn-success">Book</button>
+                                                    {% else %}
+                                                        <button type="button" class="btn btn-success" disabled>Book</button>
+                                                    {% endif %}
+                                                </td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="Room4">         
+                            <h3>Room 4</h3>
+                            <div class="container">           
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>bet no</th>
+                                        <th>Berth or Not</th>
+                                        <th>Rent per Month</th>
+                                        <th>Available or Not</th>
+                                        <th>Book</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for detail in details %}
+                                            {% if detail[1] == 4 %}
+                                                <tr>
+                                                <td>{{detail[2]}}</td>
+                                                <td>{{detail[3]}}</td>
+                                                <td>{{detail[4]}}</td>
+                                                <td>{{detail[5]}}</td>
+                                                <td>
+                                                    {% if detail[5] == "Available" %}
+                                                        <button type="button" class="btn btn-success">Book</button>
+                                                    {% else %}
+                                                        <button type="button" class="btn btn-success" disabled>Book</button>
+                                                    {% endif %}
+                                                </td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>      
+
+                        <div id="Room5">         
+                            <h3>Room 5</h3>
+                            <div class="container">           
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>bet no</th>
+                                        <th>Berth or Not</th>
+                                        <th>Rent per Month</th>
+                                        <th>Available or Not</th>
+                                        <th>Book</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for detail in details %}
+                                            {% if detail[1] == 5 %}
+                                                <tr>
+                                                <td>{{detail[2]}}</td>
+                                                <td>{{detail[3]}}</td>
+                                                <td>{{detail[4]}}</td>
+                                                <td>{{detail[5]}}</td>
+                                                <td>
+                                                    {% if detail[5] == "Available" %}
+                                                        <button type="button" class="btn btn-success">Book</button>
+                                                    {% else %}
+                                                        <button type="button" class="btn btn-success" disabled>Book</button>
+                                                    {% endif %}
+                                                </td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="Room6">         
+                            <h3>Room 6</h3>
+                            <div class="container">           
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>bet no</th>
+                                        <th>Berth or Not</th>
+                                        <th>Rent per Month</th>
+                                        <th>Available or Not</th>
+                                        <th>Book</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for detail in details %}
+                                            {% if detail[1] == 6 %}
+                                                <tr>
+                                                <td>{{detail[2]}}</td>
+                                                <td>{{detail[3]}}</td>
+                                                <td>{{detail[4]}}</td>
+                                                <td>{{detail[5]}}</td>
+                                                <td>
+                                                    {% if detail[5] == "Available" %}
+                                                        <button type="button" class="btn btn-success">Book</button>
+                                                    {% else %}
+                                                        <button type="button" class="btn btn-success" disabled>Book</button>
+                                                    {% endif %}
+                                                </td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="Room7">         
+                            <h3>Room 7</h3>
+                            <div class="container">           
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>bet no</th>
+                                        <th>Berth or Not</th>
+                                        <th>Rent per Month</th>
+                                        <th>Available or Not</th>
+                                        <th>Book</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for detail in details %}
+                                            {% if detail[1] == 7 %}
+                                                <tr>
+                                                <td>{{detail[2]}}</td>
+                                                <td>{{detail[3]}}</td>
+                                                <td>{{detail[4]}}</td>
+                                                <td>{{detail[5]}}</td>
+                                                <td>
+                                                    {% if detail[5] == "Available" %}
+                                                        <button type="button" class="btn btn-success">Book</button>
+                                                    {% else %}
+                                                        <button type="button" class="btn btn-success" disabled>Book</button>
+                                                    {% endif %}
+                                                </td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="Room8">         
+                            <h3>Room 8</h3>
+                            <div class="container">           
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>bet no</th>
+                                        <th>Berth or Not</th>
+                                        <th>Rent per Month</th>
+                                        <th>Available or Not</th>
+                                        <th>Book</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for detail in details %}
+                                            {% if detail[1] == 8 %}
+                                                <tr>
+                                                <td>{{detail[2]}}</td>
+                                                <td>{{detail[3]}}</td>
+                                                <td>{{detail[4]}}</td>
+                                                <td>{{detail[5]}}</td>
+                                                <td>
+                                                    {% if detail[5] == "Available" %}
+                                                        <button type="button" class="btn btn-success">Book</button>
+                                                    {% else %}
+                                                        <button type="button" class="btn btn-success" disabled>Book</button>
+                                                    {% endif %}
+                                                </td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="Room9">         
+                            <h3>Room 9</h3>
+                            <div class="container">           
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>bet no</th>
+                                        <th>Berth or Not</th>
+                                        <th>Rent per Month</th>
+                                        <th>Available or Not</th>
+                                        <th>Book</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for detail in details %}
+                                            {% if detail[1] == 9 %}
+                                                <tr>
+                                                <td>{{detail[2]}}</td>
+                                                <td>{{detail[3]}}</td>
+                                                <td>{{detail[4]}}</td>
+                                                <td>{{detail[5]}}</td>
+                                                <td>
+                                                    {% if detail[5] == "Available" %}
+                                                        <button type="button" class="btn btn-success">Book</button>
+                                                    {% else %}
+                                                        <button type="button" class="btn btn-success" disabled>Book</button>
+                                                    {% endif %}
+                                                </td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="Room10">         
+                            <h3>Room 10</h3>
+                            <div class="container">           
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>bet no</th>
+                                        <th>Berth or Not</th>
+                                        <th>Rent per Month</th>
+                                        <th>Available or Not</th>
+                                        <th>Book</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for detail in details %}
+                                            {% if detail[1] == 10 %}
+                                            <tr>
+                                            <td>{{detail[2]}}</td>
+                                            <td>{{detail[3]}}</td>
+                                            <td>{{detail[4]}}</td>
+                                            <td>{{detail[5]}}</td>
+                                            <td>
+                                                {% if detail[5] == "Available" %}
+                                                    <button type="button" class="btn btn-success">Book</button>
+                                                {% else %}
+                                                    <button type="button" class="btn btn-success" disabled>Book</button>
+                                                {% endif %}
+                                            </td>
+                                            </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+
+</body>
+</html>

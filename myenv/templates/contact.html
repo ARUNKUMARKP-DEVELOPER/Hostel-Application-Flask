@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        table, td, th {  
+          border: 1px solid #ddd;
+          text-align: left;
+        }
+        
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th, td {
+          padding: 15px;
+        }
+        </style>
+</head>
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+        <h3>Contact Info</h3>
+        <div class="container">
+            <div class="table" style="overflow-x:auto;">
+                <h3>
+                    <table>
+                        <tr>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                        <tr>
+                          <td>Staff</td>
+                          <td>{{details[0][1]}}</td>
+                        </tr>
+                        <tr>
+                          <td>Name</td>
+                          <td>{{details[0][2]}}</td>
+                        </tr>
+                        <tr>
+                          <td>mobile no</td>
+                          <td>{{details[0][3]}}</td>
+                        </tr>
+                        <tr>
+                          <td>email id</td>
+                          <td>{{details[0][4]}}</td>
+                        </tr>
+                    </table>
+                </h3>
+            </div>
+        </div>
+
+    {% endblock %}
+    
+</body>
+</html>

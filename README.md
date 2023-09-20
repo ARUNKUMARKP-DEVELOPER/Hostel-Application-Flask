@@ -1,4 +1,4 @@
-# HOSTEMATE - Hostel Maintenance and Room Booking Web Application
+# HOSTELMATE - Hostel Maintenance and Room Booking Web Application
 
 Welcome to the Hostel Maintenance and Room Booking Web Application, a project that showcases my expertise in full-stack web development. 
 This application provides users with a seamless experience for managing hostel maintenance and booking rooms.

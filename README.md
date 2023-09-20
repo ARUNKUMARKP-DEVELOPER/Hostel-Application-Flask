@@ -1,5 +1,3 @@
-# Hostel-Application-Flask
-
 # Hostel Maintenance and Room Booking Web Application
 
 Welcome to the Hostel Maintenance and Room Booking Web Application, a project that showcases my expertise in full-stack web development. 
@@ -55,10 +53,6 @@ responsive web applications and showcases full-stack development skills.
 1. Users can create maintenance requests and book rooms after signing up or logging in.
 2. Admins can manage room details and maintenance requests via the admin panel.
 3. Users can check room availability, select dates, and make reservations.
-
-## Contributing
-
-Contributions to this project are welcome! If you'd like to contribute, please follow the [Contributing Guidelines](CONTRIBUTING.md).
 
 ---
 
